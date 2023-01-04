@@ -1,0 +1,38 @@
+.header {
+	background-color: var(--color-secondary);
+}
+
+.container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.logo {
+}
+
+.parallelSelectionLogo {
+	height: 23px;
+	width: 15px;
+}
+
+.navItems {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	text-decoration: none;
+	list-style: none;
+}
+
+a {
+	color: var(--color-text-primary);
+	text-decoration: none;
+}
+
+.askButton {
+	background-color: var(--color-text-primary);
+}
+
+.askButton > a {
+	color: white;
+}
