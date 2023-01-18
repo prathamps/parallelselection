@@ -3,19 +3,24 @@
 }
 
 .container {
+	overflow: hidden;
+	width: 100%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	height: 6rem;
 }
 
-.logo {
+.logoContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .parallelSelectionLogo {
 	height: 10rem;
 	width: 10rem;
-	margin: 1rem 6rem;
+	margin: 0rem 3rem 0rem 6rem;
 }
 
 .navItems {
@@ -29,22 +34,53 @@
 }
 
 .blogLink {
+	color: #fff;
 	font-weight: 600;
 	margin: 1rem 4rem;
 }
 
 a {
-	color: var(--color-text-primary);
+	color: white;
 	text-decoration: none;
 }
 
 .askButton {
-	padding: 1rem 2rem;
+	padding: 0.5rem 1rem;
 	border-radius: 50px;
-	background-color: var(--color-text-primary);
+	background-color: white;
 }
 
 .askButton > a {
 	font-weight: 600;
-	color: white;
+	color: rgb(0, 0, 0);
+}
+
+.searchBar {
+	background-color: #d9d9d9;
+	flex: 1;
+	display: flex;
+	border-radius: 50px;
+	align-items: center;
+}
+
+.searchIconContainer {
+	margin: 10px;
+}
+
+.searchInput {
+	background-color: transparent;
+	border: none;
+	width: 100%;
+	outline: none;
+	color: #eee;
+	font-size: 16px;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+	.parallelSelectionLogo {
+		height: 10rem;
+		width: 10rem;
+		margin: 0rem 0.5rem 0rem 0.5rem;
+	}
 }

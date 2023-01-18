@@ -1,11 +1,12 @@
 ---
 import "../styles/components/Header.css"
 import parallelSelectionLogo from "../../public/parallelselectionlogo.svg"
+import searchIcon from "../../public/search.png"
 ---
 
 <header class="header">
 	<div class="container">
-		<div class="logo">
+		<div class="logoContainer">
 			<a href="index.html">
 				<img
 					class="parallelSelectionLogo"
@@ -13,11 +14,17 @@ import parallelSelectionLogo from "../../public/parallelselectionlogo.svg"
 					alt="Parallel Selection Logo"
 				/>
 			</a>
+			<div class="searchBar">
+				<div class="searchIconContainer">
+					<img src={searchIcon} alt="" />
+				</div>
+				<input class="searchInput" placeholder="Select Selection" />
+			</div>
 		</div>
 		<nav class="navbarContainer">
 			<ul class="navItems">
 				<li class="blogLink"><a href="blog.html">Blog</a></li>
-				<li class="askButton"><a href="askquestion.html">Ask Question</a></li>
+				<li class="askButton"><a href="askquestion.html">Ask Selection</a></li>
 			</ul>
 		</nav>
 	</div>
