@@ -1,9 +1,32 @@
 ---
 import Layout from "../layouts/Layout.astro"
+import parallelSelectionLogo from "/parallelselectionlogo.svg"
+import "../styles/components/LandingPage.css"
+import "../styles/global.css"
 ---
 
 <>
-	<Layout>
-		<h1>Parallel Selection</h1>
-	</Layout>
+	<header class="header">
+		<div class="container">
+			<div class="logoContainer">
+				<a href="index.html">
+					<img
+						class="parallelSelectionLogo"
+						src={parallelSelectionLogo}
+						alt="Parallel Selection Logo"
+					/>
+				</a>
+			</div>
+			<div class="navbarContainer">
+				<nav class="navItemsContainer">
+					<ul class="navItems">
+						<li class="blogLink"><a href="blog.html">Blog</a></li>
+						<li class="askButton">
+							<a href="askquestion.html">Ask Selection</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</header>
 </>
