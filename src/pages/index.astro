@@ -5,9 +5,16 @@ import "../styles/global.css"
 import HeaderMain from "../components/HeaderMain/HeaderMain.astro"
 ---
 
-<div>
-	<HeaderMain />
-	<div class="landingSection">
-		<div class="landing"></div>
+<Layout>
+	<div>
+		<HeaderMain />
+		<div class="landingSection">
+			<div class="landing">
+				<div class="landingHeading">
+					Welcome to <div>Parallel Selection</div>
+				</div>
+				<div class="landingButton">Start Browsing</div>
+			</div>
+		</div>
 	</div>
-</div>
+</Layout>
