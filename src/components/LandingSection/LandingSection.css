@@ -58,7 +58,7 @@
 	color: white;
 	padding: 1rem 1rem;
 	border-radius: 10px;
-	transition: all 400ms ease-in-out;
+	transition: all 200ms ease-in-out;
 	cursor: pointer;
 }
 
