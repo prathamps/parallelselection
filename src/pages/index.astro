@@ -3,18 +3,10 @@ import Layout from "../layouts/Layout.astro"
 import "../styles/components/LandingPage.css"
 import "../styles/global.css"
 import LandingSection from "../components/LandingSection/LandingSection.astro"
+import TopSelectionSection from "../components/TopSelectionSection/TopSelectionSection.astro"
 ---
 
 <Layout>
 	<LandingSection />
-	<div class="topSelection">
-		<div class="topSelectionContainer">
-			<div class="topSelectionHeading">Top Selections</div>
-			<div class="selectedCardContainer">
-				<div class="selectedCard"></div>
-				<div class="selectedCard"></div>
-				<div class="selectedCard"></div>
-			</div>
-		</div>
-	</div>
+	<TopSelectionSection />
 </Layout>

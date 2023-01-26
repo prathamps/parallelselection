@@ -57,7 +57,6 @@
 	border: 1px solid white;
 	color: white;
 	padding: 1rem 1rem;
-	border-radius: 10px;
 	transition: all 200ms ease-in-out;
 	cursor: pointer;
 }
