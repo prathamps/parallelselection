@@ -1,0 +1,131 @@
+.blogPosts {
+	margin-top: 6rem;
+	margin-bottom: 6rem;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.blogPostsContainer {
+	width: 65vw;
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: space-between;
+	position: sticky;
+	align-items: baseline;
+}
+.blogCategoryContainer {
+	width: 35%;
+	height: max-content;
+}
+
+.blogCategoryHeading {
+	font-weight: 600;
+	font-size: 1.5rem;
+}
+
+.blogCategories {
+	overflow-x: scroll;
+	background-color: #363636;
+	max-width: fit-content;
+	width: 100%;
+	height: max-content;
+	display: flex;
+}
+
+.blogCategories::-webkit-scrollbar {
+	width: 10px;
+}
+
+.blogCategories::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.blogCategories::-webkit-scrollbar-thumb {
+	background-color: darkgrey;
+	outline: 1px solid slategrey;
+}
+
+.blogCategories {
+	-ms-overflow-style: inherit; /* IE and Edge */
+	scrollbar-width: 1em; /* Firefox */
+}
+
+.blogCategory {
+	background-color: #363636;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	color: white;
+	grid-gap: 10px;
+	grid-row-gap: 10px;
+	margin: 2rem;
+}
+
+.categoryChip {
+	min-width: max-content;
+	border: 1px solid white;
+	padding: 0.5rem 0.5rem;
+	cursor: pointer;
+	transition: all 200ms ease-in-out;
+}
+
+.categoryChip:hover {
+	transform: scale(110%);
+}
+
+.blogPostsCardContainer {
+	width: 65%;
+}
+
+.blogPostCard {
+	display: flex;
+
+	margin-top: 2rem;
+}
+
+.blogPostCardContent {
+	width: 75%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.blogPostTitle {
+	font-weight: 600;
+	font-size: 1.5rem;
+}
+
+.blogPostDescription {
+	font-size: 1rem;
+}
+
+.blogPostImage {
+	background-color: #363636;
+	width: 20%;
+	min-height: 150px;
+	height: 100%;
+}
+
+@media (max-width: 768px) {
+	.blogPostsContainer {
+		width: 65vw;
+	}
+
+	.blogPostsCardContainer {
+		width: 80vw;
+	}
+}
+
+@media (max-width: 480px) {
+	.blogPostsContainer {
+		flex-direction: column;
+		width: 85vw;
+	}
+	.blogCategoryContainer {
+		width: 100%;
+	}
+
+	.blogPostsCardContainer {
+		width: 90vw;
+	}
+}
