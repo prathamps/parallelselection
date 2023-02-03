@@ -1,0 +1,23 @@
+.container {
+	width: 60vw;
+}
+.searchHeaderContainer {
+	margin-top: 3rem;
+}
+.headerTitle {
+	font-size: 2rem;
+	font-weight: 500;
+}
+
+@media (max-width: 768px) {
+	.container {
+		width: 65vw;
+	}
+}
+
+@media (max-width: 480px) {
+	.container {
+		flex-direction: column;
+		width: 85vw;
+	}
+}
