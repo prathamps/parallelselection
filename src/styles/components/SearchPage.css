@@ -1,5 +1,11 @@
 .container {
-	width: 60vw;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.searchPageContainer {
+	width: 65vw;
 }
 .searchHeaderContainer {
 	margin-top: 3rem;
@@ -9,14 +15,18 @@
 	font-weight: 500;
 }
 
+.blogPosts {
+	margin-top: 0rem;
+}
+
 @media (max-width: 768px) {
-	.container {
+	.searchPageContainer {
 		width: 65vw;
 	}
 }
 
 @media (max-width: 480px) {
-	.container {
+	.searchPageContainer {
 		flex-direction: column;
 		width: 85vw;
 	}

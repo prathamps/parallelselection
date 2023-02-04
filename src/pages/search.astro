@@ -1,14 +1,21 @@
 ---
+import BlogPostSection from "../components/BlogPostSection/BlogPostSection.astro"
+import Footer from "../components/Footer/Footer.astro"
 import Header from "../components/Header/Header.astro"
+import Layout from "../layouts/Layout.astro"
 import "../styles/components/SearchPage.css"
 import "../styles/global.css"
 ---
 
-<section>
+<Layout>
 	<Header />
 	<div class="container">
-		<div class="searchHeaderContainer">
-			<div class="headerTitle">LifeStyle</div>
+		<div class="searchPageContainer">
+			<div class="searchHeaderContainer">
+				<div class="headerTitle">LifeStyle</div>
+			</div>
 		</div>
 	</div>
-</section>
+	<BlogPostSection name="lifeStyle" />
+	<Footer />
+</Layout>

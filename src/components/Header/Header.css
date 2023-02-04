@@ -109,6 +109,7 @@ a {
 /* Mobile */
 @media (max-width: 700px) {
 	.navItemsContainer {
+		z-index: 100;
 		display: none;
 		transition: all 0.9s ease-in-out;
 		opacity: 0;

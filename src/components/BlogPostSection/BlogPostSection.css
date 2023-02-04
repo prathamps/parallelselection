@@ -108,9 +108,12 @@
 
 @media (max-width: 768px) {
 	.blogPostsContainer {
-		width: 65vw;
+		flex-direction: column;
+		width: 75vw;
 	}
-
+	.blogCategoryContainer {
+		width: 100%;
+	}
 	.blogPostsCardContainer {
 		width: 80vw;
 	}
