@@ -1,0 +1,157 @@
+.blogContainer {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.blogPageContainer {
+	width: 65vw;
+}
+.blogHeaderContainer {
+	width: 50%;
+	display: flex;
+	margin-top: 8rem;
+	justify-content: center;
+	align-items: center;
+}
+.parallelImageConatiner {
+	width: 20%;
+}
+
+.blogProfileContainer {
+	width: 80%;
+	display: flex;
+	flex-direction: column;
+}
+.blogProfileMisc {
+	display: flex;
+}
+
+.readTime {
+	margin-left: 1rem;
+	color: #a3a3a3;
+}
+
+/* Blog Tag Chips Section */
+.blogTagContainer {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+.tagContainer {
+	display: grid;
+	grid-template-columns: repeat(4, 0fr);
+	grid-gap: 10px;
+	grid-row-gap: 10px;
+	margin: 2rem;
+}
+
+.chips {
+	padding: 0.5rem;
+	font-size: 0.8rem;
+	text-align: center;
+	width: fit-content;
+	background-color: #d9d9d9;
+	border-radius: 25px;
+}
+
+.tagContainer {
+	width: 65vw;
+}
+
+/* Subscribe Email Container */
+
+.subscribeContainer {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.emailContainer {
+	border-top: 1px solid #000000;
+	width: 65vw;
+}
+
+.subscribeHeader {
+	margin-top: 2rem;
+	font-weight: 600;
+	font-size: 1.2rem;
+}
+
+.emailBar {
+	flex: 1;
+	display: flex;
+	border-bottom: 1px solid #000000;
+	align-items: center;
+	height: 2.5rem;
+}
+
+.subscribeInputContainer {
+	display: flex;
+	align-items: end;
+}
+
+.emailInput {
+	background-color: transparent;
+	border: none;
+	width: 100%;
+	outline: none;
+	color: #9c9c9c;
+	font-size: 16px;
+}
+
+.subscribeButton {
+	margin: 2rem 2rem auto 2rem;
+	border: 1px solid #000000;
+	padding: 1rem 2rem;
+	border-radius: 50px;
+	transition: all 200ms ease-in-out;
+	cursor: pointer;
+}
+
+.subscribeButton:hover {
+	transform: scale(110%);
+}
+
+@media (max-width: 768px) {
+	.blogPageContainer {
+		width: 65vw;
+	}
+
+	.blogHeaderContainer {
+		width: 80%;
+		margin-top: 3rem;
+	}
+
+	.tagContainer {
+		width: 65vw;
+	}
+
+	.emailContainer {
+		width: 65vw;
+	}
+
+	.subscribeButton {
+		padding: 0.7rem 1.5rem;
+	}
+}
+
+@media (max-width: 480px) {
+	.blogPageContainer {
+		flex-direction: column;
+		width: 85vw;
+	}
+	.tagContainer {
+		width: 85vw;
+	}
+	.emailContainer {
+		width: 85vw;
+	}
+	.blogHeaderContainer {
+		width: 90%;
+	}
+
+	.subscribeButton {
+		padding: 0.5rem 1rem;
+	}
+}

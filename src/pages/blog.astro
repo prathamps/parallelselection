@@ -1,0 +1,54 @@
+---
+import "../styles/global.css"
+import Header from "../components/Header/Header.astro"
+import Layout from "../layouts/Layout.astro"
+import BlogPostSection from "../components/BlogPostSection/BlogPostSection.astro"
+import lineIMG from "/profileline.svg"
+import "../styles/components/BlogPage.css"
+---
+
+<Layout>
+	<Header />
+	<div class="blogContainer">
+		<div class="blogPageContainer">
+			<div class="blogHeaderContainer">
+				<div class="parallelImageConatiner">
+					<img src={lineIMG} />
+				</div>
+				<div class="blogProfileContainer">
+					<div class="blogProfileHeader">Parallel Tech Solution</div>
+					<div class="blogProfileMisc">
+						<div class="date">Jan 2nd, 2022</div><div class="readTime">
+							3 min read
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Blog Content Start -->
+
+	<!-- Blog Content End -->
+	<div class="blogTagContainer">
+		<div class="tagContainer">
+			<div class="chips">Keyboards</div>
+			<div class="chips">Keyboards</div>
+			<div class="chips">Keyboards</div>
+			<div class="chips">Keyboards</div>
+			<div class="chips">Keyboards</div>
+			<div class="chips">Keyboards</div>
+		</div>
+	</div>
+	<div class="subscribeContainer">
+		<div class="emailContainer">
+			<div class="subscribeHeader">Get an email there is new publish.</div>
+			<div class="subscribeInputContainer">
+				<div class="emailBar">
+					<input class="emailInput" placeholder="Your Email" />
+				</div>
+				<div class="subscribeButton">Subscribe</div>
+			</div>
+		</div>
+	</div>
+	<!-- <BlogPostSection /> -->
+</Layout>
