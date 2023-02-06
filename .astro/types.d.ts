@@ -74,6 +74,13 @@ declare module 'astro:content' {
   collection: "blog",
   data: any
 },
+"mouse.md": {
+  id: "mouse.md",
+  slug: "mouse",
+  body: string,
+  collection: "blog",
+  data: any
+},
 },
 
 	};

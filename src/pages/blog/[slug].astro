@@ -44,17 +44,19 @@ const { Content } = await post.render()
 			</div>
 		</div>
 	</div>
+
 	<!-- Blog Content Start -->
 	<div class="blogContainer">
 		<div class="blog">
 			<header>
-				<h1>{post.data.title}</h1>
-				<p>{post.data.share.description}</p>
+				<h1 class="blogHeader">{post.data.title}</h1>
+				<p class="blogDescription">{post.data.share.description}</p>
 			</header>
 			<Content />
 		</div>
 	</div>
 	<!-- Blog Content End -->
+
 	<div class="blogTagContainer">
 		<div class="tagContainer">
 			{post.data.tags.map((tag: any) => <div class="chips">{tag}</div>)}
