@@ -2,6 +2,25 @@
 import "./BlogPostSection.css"
 
 const { name } = Astro.props
+
+import { getCollection } from "astro:content"
+
+const posts = await getCollection("blog")
+
+const monthArr = [
+	"Jan",
+	"Feb",
+	"Mar",
+	"Apr",
+	"May",
+	"Jun",
+	"Jul",
+	"Aug",
+	"Sep",
+	"Oct",
+	"Nov",
+	"Dec",
+]
 ---
 
 <section class="blogPosts" id="BlogPosts">
@@ -20,61 +39,27 @@ const { name } = Astro.props
 			</div>
 		</div>
 		<div class="blogPostsCardContainer">
-			<div class="blogPostCard">
-				<div class="blogPostCardContent">
-					<div class="blogPostTitle">Top 5 Rubic Cubes</div>
-					<div class="blogPostDescription">
-						So, basically the term Rubic Cube was coined in the year. Here are
-						our top picks of rubiks cube that have broken the internett
-					</div>
-					<div class="contentMisc">
-						25 Jan <span class="duration">3 min</span>
-					</div>
-				</div>
-				<div class="blogPostImage">Image</div>
-			</div>
-
-			<div class="blogPostCard">
-				<div class="blogPostCardContent">
-					<div class="blogPostTitle">Top 5 Rubic Cubes</div>
-					<div class="blogPostDescription">
-						So, basically the term Rubic Cube was coined in the year. Here are
-						our top picks of rubiks cube that have broken the internett
-					</div>
-					<div class="contentMisc">
-						25 Jan <span class="duration">3 min</span>
-					</div>
-				</div>
-				<div class="blogPostImage">Image</div>
-			</div>
-
-			<div class="blogPostCard">
-				<div class="blogPostCardContent">
-					<div class="blogPostTitle">Top 5 Rubic Cubes</div>
-					<div class="blogPostDescription">
-						So, basically the term Rubic Cube was coined in the year. Here are
-						our top picks of rubiks cube that have broken the internett
-					</div>
-					<div class="contentMisc">
-						25 Jan <span class="duration">3 min</span>
-					</div>
-				</div>
-				<div class="blogPostImage">Image</div>
-			</div>
-
-			<div class="blogPostCard">
-				<div class="blogPostCardContent">
-					<div class="blogPostTitle">Top 5 Rubic Cubes</div>
-					<div class="blogPostDescription">
-						So, basically the term Rubic Cube was coined in the year. Here are
-						our top picks of rubiks cube that have broken the internett
-					</div>
-					<div class="contentMisc">
-						25 Jan <span class="duration">3 min</span>
-					</div>
-				</div>
-				<div class="blogPostImage">Image</div>
-			</div>
+			{
+				posts.map((post) => {
+					return (
+						<div class="blogPostCard">
+							<article class="blogPostCardContent">
+								<div class="blogPostTitle">{post.data.title}</div>
+								<div class="blogPostDescription">{post.data.description}</div>
+								<div class="contentMisc">
+									{`${
+										monthArr[post.data.date.getMonth()]
+									}  ${post.data.date.getDate()}`}
+									<span class="duration">3 min</span>
+								</div>
+							</article>
+							<div class="blogPostImage">
+								<a href={`/blog/${post.slug}`}>Link</a>
+							</div>
+						</div>
+					)
+				})
+			}
 		</div>
 	</div>
 </section>

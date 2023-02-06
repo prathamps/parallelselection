@@ -1,10 +1,28 @@
 ---
-import "../styles/global.css"
-import Header from "../components/Header/Header.astro"
-import Layout from "../layouts/Layout.astro"
-import BlogPostSection from "../components/BlogPostSection/BlogPostSection.astro"
+import Header from "../../components/Header/Header.astro"
+import Layout from "../../layouts/Layout.astro"
+import BlogPostSection from "../../components/BlogPostSection/BlogPostSection.astro"
 import lineIMG from "/profileline.svg"
-import "../styles/components/BlogPage.css"
+import "../../styles/components/BlogPage.css"
+
+import { getCollection, CollectionEntry } from "astro:content"
+
+export async function getStaticPaths() {
+	const posts = await getCollection("blog")
+	return posts.map((post) => {
+		return {
+			params: { slug: post.slug },
+			props: { post },
+		}
+	})
+}
+
+interface Props {
+	post: CollectionEntry<"blog">
+}
+
+const { post } = Astro.props
+const { Content } = await post.render()
 ---
 
 <Layout>
@@ -27,16 +45,19 @@ import "../styles/components/BlogPage.css"
 		</div>
 	</div>
 	<!-- Blog Content Start -->
-
+	<div class="blogContainer">
+		<div class="blog">
+			<header>
+				<h1>{post.data.title}</h1>
+				<p>{post.data.share.description}</p>
+			</header>
+			<Content />
+		</div>
+	</div>
 	<!-- Blog Content End -->
 	<div class="blogTagContainer">
 		<div class="tagContainer">
-			<div class="chips">Keyboards</div>
-			<div class="chips">Keyboards</div>
-			<div class="chips">Keyboards</div>
-			<div class="chips">Keyboards</div>
-			<div class="chips">Keyboards</div>
-			<div class="chips">Keyboards</div>
+			{post.data.tags.map((tag: any) => <div class="chips">{tag}</div>)}
 		</div>
 	</div>
 	<div class="subscribeContainer">
@@ -50,5 +71,5 @@ import "../styles/components/BlogPage.css"
 			</div>
 		</div>
 	</div>
-	<!-- <BlogPostSection /> -->
+	<BlogPostSection />
 </Layout>

@@ -113,6 +113,22 @@
 	transform: scale(110%);
 }
 
+/* blog Container */
+
+.subscribeContainer {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.blog {
+	width: 65vw;
+}
+
+.blog a {
+	color: #000000;
+}
+
 @media (max-width: 768px) {
 	.blogPageContainer {
 		width: 65vw;
@@ -131,6 +147,10 @@
 		width: 65vw;
 	}
 
+	.blog {
+		width: 65vw;
+	}
+
 	.subscribeButton {
 		padding: 0.7rem 1.5rem;
 	}
@@ -145,6 +165,10 @@
 		width: 85vw;
 	}
 	.emailContainer {
+		width: 85vw;
+	}
+
+	.blog {
 		width: 85vw;
 	}
 	.blogHeaderContainer {
