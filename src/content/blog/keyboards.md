@@ -4,12 +4,13 @@ draft: true
 date: 2023-01-14
 title: Eat Cheese Every Day
 
-category: food
+category: Food
 tags:
   - gouda
   - cheddar
   - brie
 description: Eat cheese every day and your whole life will change.
+readtime: 5 min
 share:
   image: https://res.cloudinary.com/jlengstorf/image/upload/v1674096555/blog/eat-cheese-every-day.jpg
   title: One Mind-Blowing Life Hack That Will Change The Way You Eat

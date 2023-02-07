@@ -11,6 +11,7 @@ export const collection = {
 			category: z.enum(["tech", "food"]),
 			tags: z.array(z.string()).optional(),
 			description: z.string(),
+			readtime: z.string(),
 			share: z
 				.object({
 					image: z.string().optional(),

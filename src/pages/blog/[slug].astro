@@ -23,6 +23,21 @@ interface Props {
 
 const { post } = Astro.props
 const { Content } = await post.render()
+
+const monthArr = [
+	"Jan",
+	"Feb",
+	"Mar",
+	"Apr",
+	"May",
+	"Jun",
+	"Jul",
+	"Aug",
+	"Sep",
+	"Oct",
+	"Nov",
+	"Dec",
+]
 ---
 
 <Layout>
@@ -34,10 +49,18 @@ const { Content } = await post.render()
 					<img src={lineIMG} />
 				</div>
 				<div class="blogProfileContainer">
-					<div class="blogProfileHeader">Parallel Tech Solution</div>
+					<div class="blogProfileHeader">
+						Parallel {post.data.category} Solution
+					</div>
 					<div class="blogProfileMisc">
-						<div class="date">Jan 2nd, 2022</div><div class="readTime">
-							3 min read
+						<div class="date">
+							{
+								`${
+									monthArr[post.data.date.getMonth()]
+								}  ${post.data.date.getDate()}`
+							}
+						</div><div class="readTime">
+							{post.data.readtime}
 						</div>
 					</div>
 				</div>

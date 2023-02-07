@@ -4,9 +4,11 @@ draft: false
 date: 2023-01-17
 title: The Yellow Ones Don’t Stop
 
-category: wisdom
+category: Wisdom
 tags:
   - survival
+
+readtime: 2 min
 
 share:
   image: https://res.cloudinary.com/jlengstorf/image/upload/v1674108800/blog/yellow-ones-dont-stop.jpg

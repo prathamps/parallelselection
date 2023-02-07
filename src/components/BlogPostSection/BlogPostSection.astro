@@ -42,7 +42,11 @@ const monthArr = [
 			{
 				posts.map((post) => {
 					return (
-						<div class="blogPostCard">
+						<a
+							href={`/blog/${post.slug}`}
+							class="blogPostCard"
+							style="color: black;"
+						>
 							<article class="blogPostCardContent">
 								<div class="blogPostTitle">{post.data.title}</div>
 								<div class="blogPostDescription">{post.data.description}</div>
@@ -50,13 +54,13 @@ const monthArr = [
 									{`${
 										monthArr[post.data.date.getMonth()]
 									}  ${post.data.date.getDate()}`}
-									<span class="duration">3 min</span>
+									<span class="duration">{post.data.readtime}</span>
 								</div>
 							</article>
 							<div class="blogPostImage">
-								<a href={`/blog/${post.slug}`}>Link</a>
+								<img class="postImage" src={post.data.share.image} />
 							</div>
-						</div>
+						</a>
 					)
 				})
 			}
