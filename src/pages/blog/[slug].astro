@@ -7,6 +7,8 @@ import "../../styles/components/BlogPage.css"
 
 import { getCollection, CollectionEntry } from "astro:content"
 
+import { monthArr } from "../../API/monthApi"
+
 export async function getStaticPaths() {
 	const posts = await getCollection("blog")
 	return posts.map((post) => {
@@ -23,21 +25,6 @@ interface Props {
 
 const { post } = Astro.props
 const { Content } = await post.render()
-
-const monthArr = [
-	"Jan",
-	"Feb",
-	"Mar",
-	"Apr",
-	"May",
-	"Jun",
-	"Jul",
-	"Aug",
-	"Sep",
-	"Oct",
-	"Nov",
-	"Dec",
-]
 ---
 
 <Layout>

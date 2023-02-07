@@ -1,26 +1,12 @@
 ---
 import "./BlogPostSection.css"
 
-const { name } = Astro.props
+import { monthArr } from "../../API/monthApi"
 
 import { getCollection } from "astro:content"
 
+const { name } = Astro.props
 const posts = await getCollection("blog")
-
-const monthArr = [
-	"Jan",
-	"Feb",
-	"Mar",
-	"Apr",
-	"May",
-	"Jun",
-	"Jul",
-	"Aug",
-	"Sep",
-	"Oct",
-	"Nov",
-	"Dec",
-]
 ---
 
 <section class="blogPosts" id="BlogPosts">
