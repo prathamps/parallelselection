@@ -1,9 +1,23 @@
 ---
+import Header from "../components/Header/Header.astro"
 import Layout from "../layouts/Layout.astro"
+
+import "../styles/components/AskSelection.css"
 ---
 
 <Layout>
 	<div class="formContainer">
-		<form></form>
+		<div class="askSelectionContainer">
+			<div class="formHeading">Ask a Selection</div>
+			<textarea
+				class="textarea"
+				spellcheck="false"
+				placeholder="Type something here..."
+				required></textarea>
+
+			<div class="buttonContainer">
+				<div class="formButton">Send</div>
+			</div>
+		</div>
 	</div>
 </Layout>
