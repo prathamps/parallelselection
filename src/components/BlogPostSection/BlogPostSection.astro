@@ -39,7 +39,7 @@ const posts = await getCollection("blog")
 								<div class="contentMisc">
 									{`${
 										monthArr[post.data.date.getMonth()]
-									}  ${post.data.date.getDate()}`}
+									} · ${post.data.date.getDate()}`}
 									<span class="duration">{post.data.readtime}</span>
 								</div>
 							</article>

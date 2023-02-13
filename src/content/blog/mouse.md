@@ -9,12 +9,11 @@ tags:
   - survival
 
 readtime: 2 min
-
+description: Eat cheese every day and your whole life will change.
 share:
   image: https://res.cloudinary.com/jlengstorf/image/upload/v1674108800/blog/yellow-ones-dont-stop.jpg
   title: The Harrowing Truth of Living In New York, Exposed!
-  description: >
-    The Big Apple may be called a concrete jungle, but if you don’t have the cheat codes for this game of Frogger then it’ll be game over for you, friendo.
+  description: The Big Apple may be called a concrete jungle, but if you don’t have the cheat codes for this game of Frogger then it’ll be game over for you, friendo.
 ---
 
 Learn to spot New York’s apex predator.

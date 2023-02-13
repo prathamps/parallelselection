@@ -1,55 +1,35 @@
 ---
 import "./TrendingSection.css"
+
+import { monthArr } from "../../API/monthApi"
+import { getCollection } from "astro:content"
+
+const posts = await getCollection("blog")
 ---
 
 <section class="topTrending">
 	<div class="topTrendingContainer">
 		<div class="topTrendingHeading">Trending</div>
 		<div class="trendingCardContainer">
-			<div class="trendingCard">
-				<div class="trendingCardContent">
-					<div class="trendingTitle">Top 5 Rubic Cubes</div>
-					<div class="trendingDescription">
-						So, basically the term Rubic Cube was coined in the year
-					</div>
-					<div class="contentMisc">
-						25 Jan <span class="duration">3 min</span>
-					</div>
-				</div>
-			</div>
-			<div class="trendingCard">
-				<div class="trendingCardContent">
-					<div class="trendingTitle">Top 5 Rubic Cubes</div>
-					<div class="trendingDescription">
-						So, basically the term Rubic Cube was coined in the year
-					</div>
-					<div class="contentMisc">
-						25 Jan <span class="duration">3 min</span>
-					</div>
-				</div>
-			</div>
-			<div class="trendingCard">
-				<div class="trendingCardContent">
-					<div class="trendingTitle">Top 5 Rubic Cubes</div>
-					<div class="trendingDescription">
-						So, basically the term Rubic Cube was coined in the year
-					</div>
-					<div class="contentMisc">
-						25 Jan <span class="duration">3 min</span>
-					</div>
-				</div>
-			</div>
-			<div class="trendingCard">
-				<div class="trendingCardContent">
-					<div class="trendingTitle">Top 5 Rubic Cubes</div>
-					<div class="trendingDescription">
-						So, basically the term Rubic Cube was coined in the year
-					</div>
-					<div class="contentMisc">
-						25 Jan <span class="duration">3 min</span>
-					</div>
-				</div>
-			</div>
+			{
+				posts.map((post, count) => {
+					if (count < 4)
+						return (
+							<a href={`/blog/${post.slug}`} class="trendingCard">
+								<div class="trendingCardContent">
+									<div class="trendingTitle">{post.data.title}</div>
+									<div class="trendingDescription">{post.data.description}</div>
+									<div class="contentTrendingMisc">
+										{`${
+											monthArr[post.data.date.getMonth()]
+										} · ${post.data.date.getDate()}`}
+										<span class="duration">{post.data.readtime}</span>
+									</div>
+								</div>
+							</a>
+						)
+				})
+			}
 		</div>
 	</div><div class="linebreak"></div>
 </section>
