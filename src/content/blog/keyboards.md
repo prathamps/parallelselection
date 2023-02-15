@@ -2,7 +2,7 @@
 draft: true
 
 date: 2023-02-14
-title: Top 10 Keyboards for Gamers:Reviews and Comparisons for the Best Gaming Keyboards of 2022
+title: "Top 10 Keyboards for Gamers : Reviews and Comparisons for the Best Gaming Keyboards of 2022"
 
 category: Technology and gadgets
 tags:

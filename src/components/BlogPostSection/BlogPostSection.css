@@ -104,7 +104,7 @@
 .blogPostTitle {
 	margin-left: 1rem;
 	font-weight: 600;
-	font-size: 1.5rem;
+	font-size: 1rem;
 }
 
 .blogPostDescription {
@@ -117,18 +117,23 @@
 	justify-content: center;
 	align-items: center;
 	margin: 1rem;
-	background-color: #363636;
-	width: 25%;
+	width: 30%;
 	min-height: 150px;
 	height: 100%;
+	overflow: hidden;
 }
 
 .contentMisc {
 	margin-left: 1rem;
 }
 .postImage {
-	width: 100%;
-	min-height: 150px;
+	overflow: hidden;
+	object-fit: cover;
+	display: block;
+	max-width: 230px;
+	max-height: 95px;
+	width: auto;
+	height: auto;
 }
 
 @media (max-width: 768px) {
