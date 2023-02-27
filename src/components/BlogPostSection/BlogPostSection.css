@@ -4,6 +4,7 @@
 	width: 100%;
 	display: flex;
 	justify-content: center;
+	overflow: hidden;
 }
 
 .blogPostCard {
@@ -92,6 +93,7 @@
 .blogPostsCardContainer {
 	margin: 1rem;
 	width: 65%;
+	overflow: hidden;
 }
 
 .blogPostCardContent {
