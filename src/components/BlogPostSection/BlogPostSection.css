@@ -147,6 +147,7 @@
 		width: 100%;
 	}
 	.blogPostsCardContainer {
+		margin: auto;
 		width: 80vw;
 	}
 }
