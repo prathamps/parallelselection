@@ -5,6 +5,9 @@ import Header from "../components/Header/Header.astro"
 import Layout from "../layouts/Layout.astro"
 import "../styles/components/SearchPage.css"
 import "../styles/global.css"
+
+const category = Astro.url.searchParams
+console.log(category)
 ---
 
 <Layout>
@@ -12,7 +15,7 @@ import "../styles/global.css"
 	<div class="searchContainer">
 		<div class="searchPageContainer">
 			<div class="searchHeaderContainer">
-				<div class="headerTitle">LifeStyle</div>
+				<div class="headerTitle" id="Title">#{category}</div>
 			</div>
 		</div>
 	</div>
