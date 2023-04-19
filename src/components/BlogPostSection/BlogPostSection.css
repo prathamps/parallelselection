@@ -66,6 +66,7 @@
 .blogCategories {
 	-ms-overflow-style: inherit; /* IE and Edge */
 	scrollbar-width: 1em; /* Firefox */
+	color: white;
 }
 
 .blogCategory {
@@ -83,6 +84,7 @@
 	border: 1px solid white;
 	padding: 0.5rem 0.5rem;
 	cursor: pointer;
+	color: white;
 	transition: all 200ms ease-in-out;
 }
 
