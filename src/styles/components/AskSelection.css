@@ -74,12 +74,18 @@
 }
 
 .formButton {
+	color: #fff;
 	background-color: #ffffff00;
 	border: 1px solid white;
 	padding: 1rem 2rem;
 	width: fit-content;
 	cursor: pointer;
 	transition: 200ms all ease-in-out;
+}
+
+.send-disabled {
+	background-color: #8a8787 !important;
+	cursor: wait;
 }
 
 .formButton:hover {

@@ -3,6 +3,8 @@ import Header from "../components/Header/Header.astro"
 import Layout from "../layouts/Layout.astro"
 
 import "../styles/components/AskSelection.css"
+
+import { db } from "../firebase"
 ---
 
 <Layout>
@@ -18,11 +20,147 @@ import "../styles/components/AskSelection.css"
 				class="textarea"
 				spellcheck="false"
 				placeholder="Type something here..."
+				id="questionarea"
 				required></textarea>
 
 			<div class="buttonContainer">
-				<div class="formButton">Send</div>
+				<button class="formButton" id="sendQuestionBtn">Send</button>
 			</div>
 		</div>
 	</div>
+
+	<script>
+		import {
+			addDoc,
+			collection,
+			deleteDoc,
+			doc,
+			getDoc,
+			getDocs,
+		} from "firebase/firestore"
+		import { db } from "../firebase"
+
+		let textarea = document.getElementById(
+			"questionarea"
+		) as HTMLTextAreaElement
+		let sendButton = document.getElementById(
+			"sendQuestionBtn"
+		) as HTMLButtonElement
+		let questiontext = ""
+		let loader = false
+
+		const disableSendButton = () => {
+			sendButton.disabled = true
+			sendButton.classList.add("send-disabled")
+		}
+
+		const enableSendButton = () => {
+			sendButton.disabled = false
+			sendButton.classList.remove("send-disabled")
+		}
+
+		disableSendButton()
+
+		const deleteCoolDown = async () => {
+			const coolDownRefs = collection(db, "coolDown")
+			const coolDownSnapshot = await getDocs(coolDownRefs)
+			try {
+				coolDownSnapshot.forEach(async (d) => {
+					await deleteDoc(doc(db, "coolDown", d.id.toString()))
+				})
+			} catch (error) {
+				// Added catch parameter
+				console.log("An error occurred when deleting expiration:", error)
+			}
+		}
+
+		// Check Firestore for a cooldown expiration time on page load
+		const checkCoolDown = async () => {
+			const coolDownRefs = collection(db, "coolDown")
+			const coolDownSnapshot = await getDocs(coolDownRefs)
+
+			if (coolDownSnapshot.empty) {
+				console.log("The 'coolDown' collection is empty.")
+				enableSendButton()
+			} else {
+				console.log("Documents in the 'coolDown' collection:")
+				coolDownSnapshot.forEach((doc) => {
+					console.log(doc.id) // Logs the name of each document
+					let cooldownExpiration = doc.data().expiration
+					console.log("cooldown", cooldownExpiration - new Date().getTime())
+					if (cooldownExpiration && cooldownExpiration > new Date().getTime()) {
+						// A cooldown is still active, so disable the button
+						disableSendButton()
+						// Set a timer to re-enable the button when the cooldown expires
+						setTimeout(() => {
+							// Re-enable the button
+							enableSendButton()
+							// Remove the cooldown expiration time from Firestore
+							deleteCoolDown()
+							console.log(
+								"cooldown over",
+								cooldownExpiration - new Date().getTime()
+							)
+						}, cooldownExpiration - new Date().getTime())
+					}
+				})
+			}
+		}
+
+		checkCoolDown()
+		const handleSubmit = async () => {
+			loader = true
+			const currentDate = new Date().toLocaleString()
+			// Add a new document with a generated id.
+			console.log({
+				date: currentDate,
+				question: questiontext,
+			})
+
+			try {
+				const docRef = await addDoc(collection(db, "selectquestion"), {
+					date: currentDate || null,
+					question: questiontext || null,
+				})
+				console.log("Document written with ID: ", docRef.id)
+				loader = false
+			} catch (err) {
+				console.log(err)
+				loader = false
+			}
+
+			// Added null check for sendButton
+			disableSendButton()
+			const cooldownExpiration = new Date().getTime() + 2 * 60 * 1000
+
+			try {
+				await addDoc(collection(db, "coolDown"), {
+					expiration: cooldownExpiration,
+				})
+			} catch (error) {
+				// Added catch parameter
+				console.log("An Error was encountered:", error)
+			}
+
+			// Set a timer to re-enable the button when the cooldown expires
+			setTimeout(() => {
+				// Re-enable the button
+				sendButton.disabled = false
+				// Remove the cooldown expiration time from the Realtime Database
+				deleteCoolDown()
+				sendButton.classList.remove("send-disabled")
+			}, 2 * 60 * 1000)
+		}
+
+		sendButton?.addEventListener("click", () => {
+			questiontext = textarea.value.trim()
+			console.log(questiontext.length)
+			if (questiontext.length > 2) {
+				disableSendButton()
+				handleSubmit()
+			} else {
+				console.log("Make sure to enter text in the field")
+			}
+		})
+	</script>
 </Layout>
