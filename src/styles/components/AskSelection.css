@@ -92,6 +92,11 @@
 	transform: scale(105%);
 }
 
+.statusText {
+	padding-top: 1rem;
+	text-align: center;
+}
+
 @media (max-width: 768px) {
 }
 

@@ -26,6 +26,9 @@ import { db } from "../firebase"
 			<div class="buttonContainer">
 				<button class="formButton" id="sendQuestionBtn">Send</button>
 			</div>
+			<div class="statusText" id="status">
+				Send me selections that you would like to see
+			</div>
 		</div>
 	</div>
 
@@ -48,6 +51,7 @@ import { db } from "../firebase"
 		) as HTMLButtonElement
 		let questiontext = ""
 		let loader = false
+		let statusDiv = document.getElementById("status") as HTMLDivElement
 
 		const disableSendButton = () => {
 			sendButton.disabled = true
@@ -57,6 +61,7 @@ import { db } from "../firebase"
 		const enableSendButton = () => {
 			sendButton.disabled = false
 			sendButton.classList.remove("send-disabled")
+			statusDiv.innerText = "Send me your preferred selections"
 		}
 
 		disableSendButton()
@@ -74,6 +79,12 @@ import { db } from "../firebase"
 			}
 		}
 
+		const setStatusText = (cooldownExpiration: number) => {
+			statusDiv.innerText =
+				"Please wait " +
+				Math.ceil((cooldownExpiration - new Date().getTime()) / 60000) +
+				" minute before you can ask a question"
+		}
 		// Check Firestore for a cooldown expiration time on page load
 		const checkCoolDown = async () => {
 			const coolDownRefs = collection(db, "coolDown")
@@ -90,6 +101,7 @@ import { db } from "../firebase"
 					console.log("cooldown", cooldownExpiration - new Date().getTime())
 					if (cooldownExpiration && cooldownExpiration > new Date().getTime()) {
 						// A cooldown is still active, so disable the button
+						setStatusText(cooldownExpiration)
 						disableSendButton()
 						// Set a timer to re-enable the button when the cooldown expires
 						setTimeout(() => {
@@ -101,6 +113,9 @@ import { db } from "../firebase"
 								"cooldown over",
 								cooldownExpiration - new Date().getTime()
 							)
+							statusDiv.innerText = (
+								cooldownExpiration - new Date().getTime()
+							).toLocaleString()
 						}, cooldownExpiration - new Date().getTime())
 					}
 				})
@@ -141,24 +156,26 @@ import { db } from "../firebase"
 				// Added catch parameter
 				console.log("An Error was encountered:", error)
 			}
-
+			setStatusText(cooldownExpiration)
 			// Set a timer to re-enable the button when the cooldown expires
 			setTimeout(() => {
 				// Re-enable the button
 				sendButton.disabled = false
 				// Remove the cooldown expiration time from the Realtime Database
 				deleteCoolDown()
-				sendButton.classList.remove("send-disabled")
+
+				setStatusText(cooldownExpiration)
 			}, 2 * 60 * 1000)
 		}
 
 		sendButton?.addEventListener("click", () => {
 			questiontext = textarea.value.trim()
 			console.log(questiontext.length)
-			if (questiontext.length > 2) {
+			if (questiontext.length > 2 && questiontext.length < 250) {
 				disableSendButton()
 				handleSubmit()
 			} else {
+				statusDiv.innerText = "Make sure the text lies between [2, 250] letters"
 				console.log("Make sure to enter text in the field")
 			}
 		})
