@@ -75,7 +75,7 @@ const { Content } = await post.render()
 	<div class="subscribeContainer">
 		<div class="emailContainer">
 			<div class="subscribeHeader">Get an email there is new publish.</div>
-			<div class="subscribeInputContainer">
+			<form class="subscribeInputContainer">
 				<div class="emailBar">
 					<input
 						type="email"
@@ -84,8 +84,10 @@ const { Content } = await post.render()
 						id="emailInput"
 					/>
 				</div>
-				<button class="subscribeButton" id="subscribe">Subscribe</button>
-			</div>
+				<button class="subscribeButton" id="subscribe" type="submit"
+					>Subscribe</button
+				>
+			</form><div class="emailstatus" id="emailStatusText"></div>
 		</div>
 	</div>
 	<script>
@@ -95,6 +97,9 @@ const { Content } = await post.render()
 
 		let emailInput = document.getElementById("emailInput") as HTMLInputElement
 		let subscribeBtn = document.getElementById("subscribe") as HTMLButtonElement
+		let emailStatusText = document.getElementById(
+			"emailStatusText"
+		) as HTMLDivElement
 		let email = ""
 		let loader = false
 		const validateEmail = (mail: string) => {
@@ -129,7 +134,8 @@ const { Content } = await post.render()
 					date: currentDate || null,
 					email: email || null,
 				})
-				console.log("Document written with ID: ", docRef.id)
+				emailStatusText.innerText = "Successfully subscribed!"
+				emailStatusText.classList.add("statussuccess")
 				loader = false
 			} catch (err) {
 				console.log(err)
@@ -138,23 +144,23 @@ const { Content } = await post.render()
 
 			// Added null check for sendButton
 			disableSendButton()
-			const cooldownExpiration = new Date().getTime() + 2 * 60 * 1000
-
 			// Set a timer to re-enable the button when the cooldown expires
 			setTimeout(() => {
 				// Re-enable the button
-				subscribeBtn.disabled = false
+				enableSendButton()
+				emailStatusText.classList.add("statussuccess")
 				// Remove the cooldown expiration time from the Realtime Database
 			}, 2 * 60 * 1000)
 		}
 
-		subscribeBtn?.addEventListener("click", () => {
+		subscribeBtn?.addEventListener("click", (e) => {
+			e.preventDefault()
 			email = emailInput.value.trim()
 			console.log(email.length)
 			if (validateEmail(email)) {
 				handleSubmit()
 			} else {
-				console.log("Make sure to enter a valid email")
+				emailStatusText.innerText = "Make sure to enter a valid email"
 			}
 		})
 	</script>
