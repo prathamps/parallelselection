@@ -4,7 +4,7 @@ import "./BlogPostSection.css"
 import { monthArr } from "../../API/monthApi"
 import { getCollection } from "astro:content"
 
-const { name } = Astro.props
+const { name, searchTerm } = Astro.props
 const posts = await getCollection("blog")
 ---
 

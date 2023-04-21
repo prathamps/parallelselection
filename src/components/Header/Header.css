@@ -62,6 +62,7 @@ a {
 	display: flex;
 	border-radius: 50px;
 	align-items: center;
+	min-width: 120px;
 }
 
 .searchIconContainer {
@@ -153,5 +154,13 @@ a {
 	}
 	.menu-icon {
 		display: flex;
+		max-width: fit-content;
+		max-height: max-content;
+		margin: auto 0.5rem;
+		transition: all 200ms ease-in;
+	}
+
+	#toggle-menu:checked ~ .menu-icon {
+		transform: rotatez(90deg);
 	}
 }

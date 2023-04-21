@@ -7,7 +7,6 @@ import "../styles/components/SearchPage.css"
 import "../styles/global.css"
 
 const category = Astro.url.searchParams
-console.log(category)
 ---
 
 <Layout>
@@ -19,6 +18,15 @@ console.log(category)
 			</div>
 		</div>
 	</div>
-	<BlogPostSection name="lifeStyle" />
+	<script>
+		// Get the query parameters from the current URL
+		const queryParams = new URLSearchParams(window.location.search)
+		const BlogPostElement = document.getElementById("BlogPost") as HTMLElement
+
+		const searchTer = queryParams.get("search")
+
+		console.log("Message:", queryParams.get("search"))
+	</script>
+	<BlogPostSection name="lifeStyle" id="BlogPost" />
 	<Footer />
 </Layout>
