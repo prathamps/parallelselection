@@ -11,7 +11,7 @@ const posts = await getCollection("blog")
 <section class="blogPosts" id="BlogPosts">
 	<div class="blogPostsContainer">
 		<div class="blogCategoryContainer">
-			<div class="blogCategoryHeading">Parallel Picks</div>
+			<div class="blogCategoryHeading">Parallel Picks {searchTerm}</div>
 			<div class="blogCategories">
 				<div class="blogCategory">
 					<a href="/search?search=Technology and gadgets" class="categoryChip"
@@ -25,7 +25,7 @@ const posts = await getCollection("blog")
 				</div>
 			</div>
 		</div>
-		<div class="blogPostsCardContainer">
+		<template class="blogPostsCardContainer" data-blogposts={posts}>
 			{
 				posts.map((post) => {
 					return (
@@ -51,6 +51,18 @@ const posts = await getCollection("blog")
 					)
 				})
 			}
-		</div>
+		</template>
 	</div>
+	<script>
+		// Get the query parameters from the current URL
+		const queryParams = new URLSearchParams(window.location.search)
+		const BlogPostContainer = document.querySelector(
+			"[data-blogposts]"
+		) as HTMLDivElement
+
+		const blogPosts = BlogPostContainer.dataset.blogposts
+
+		const searchTerm = queryParams.get("search")
+		console.log("search", blogPosts)
+	</script>
 </section>

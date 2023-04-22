@@ -35,9 +35,8 @@
 
 .select {
 	color: #fff;
-	-webkit-animation: random 10s infinite;
-	animation: random 10s infinite;
-	transition: all 200ms ease-in;
+	-webkit-animation: random 5s infinite;
+	animation: random 5s infinite;
 }
 
 @keyframes random {
