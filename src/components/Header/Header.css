@@ -1,5 +1,5 @@
 .header {
-	background-color: var(--color-text-primary);
+	background-color: var(--color-primary);
 }
 
 .container {
@@ -104,7 +104,7 @@ a {
 }
 
 .navItemsContainer {
-	background-color: var(--color-text-primary);
+	background-color: var(--color-primary);
 	transition: all 0.9s ease-in-out;
 }
 
