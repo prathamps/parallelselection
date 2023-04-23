@@ -8,24 +8,26 @@ import "../styles/global.css"
 ---
 
 <Layout>
-	<Header />
-	<div class="searchContainer">
-		<div class="searchPageContainer">
-			<div class="searchHeaderContainer">
-				<div class="headerTitle" id="Title">#</div>
+	<div style="min-height: 100vh;">
+		<Header />
+		<div class="searchContainer">
+			<div class="searchPageContainer">
+				<div class="searchHeaderContainer">
+					<div class="headerTitle" id="Title">#</div>
+				</div>
 			</div>
 		</div>
-	</div>
+		<script type="module" src="/src/components/Header/Header.ts" defer></script>
+		<BlogPostSection name="lifeStyle" />
 
-	<BlogPostSection name="lifeStyle" />
-	<script src="/src/components/Header/Header.ts"></script>
-	<script async>
-		const queryParams = new URLSearchParams(window.location.search)
-		const searchTerm = queryParams.get("search")
-		const resultTerm = queryParams.get("result")
-		const titleText = document.getElementById("Title")
-		if (searchTerm) titleText.innerText = "#" + searchTerm
-		if (resultTerm) titleText.innerText = "#" + resultTerm
-	</script>
+		<script async>
+			const queryParams = new URLSearchParams(window.location.search)
+			const searchTerm = queryParams.get("search")
+			const resultTerm = queryParams.get("result")
+			const titleText = document.getElementById("Title")
+			if (searchTerm) titleText.innerText = "#" + searchTerm
+			if (resultTerm) titleText.innerText = "#" + resultTerm
+		</script>
+	</div>
 	<Footer />
 </Layout>

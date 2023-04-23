@@ -16,11 +16,13 @@ const blogPosts = JSON.parse(
 	decodeURIComponent(blogPostContainer.dataset["blogPostContainer"] || "")
 )
 
-let blogs: any = []
+const noResult = document.querySelector(".no-result") as HTMLDivElement
+
+var blogs: any = []
 
 const searchTerm = queryParams.get("search")
 
-let prevSearch: String = "offset"
+var prevSearch: String = "offset"
 
 blogs = blogPosts.map(
 	(blog: {
@@ -29,6 +31,7 @@ blogs = blogPosts.map(
 			title: string | null
 			description: string | null
 			date: { getMonth: () => string | number; getDate: () => any }
+			category: string
 			readtime: string | null
 			share: { image: string }
 		}
@@ -75,22 +78,86 @@ blogs = blogPosts.map(
 		card.insertBefore(blogLink, card.firstElementChild)
 		blogPostContainer.append(card)
 
-		return { title: blog.data.title, element: card }
+		return {
+			title: blog.data.title,
+			element: card,
+			category: blog.data.category,
+		}
 	}
 )
+let resultflag = 0
 
-const getDisplayDetails = () => {
-	if (searchData != prevSearch) {
+function getDisplayDetails() {
+	const queryParams = new URLSearchParams(window.location.search)
+	const searchTerm = queryParams.get("search")
+	const resultTerm = queryParams.get("result")
+	console.log("test", resultTerm)
+	if (resultTerm && resultflag == 0) {
+		console.log("Result", resultTerm)
+		resultflag = 1
+		blogs &&
+			blogs.forEach((blog: any) => {
+				const isVisible = blog.title
+					.toLowerCase()
+					.trim()
+					.includes(resultTerm.toLowerCase().trim())
+				blog.element.classList.toggle("hide", !isVisible)
+			})
+		return
+	}
+
+	if (searchTerm) {
+		console.log("Search", searchTerm)
+		let blogExists = false
+		if (searchData != prevSearch) prevSearch = searchData
+		if (searchData) return
+		blogs &&
+			blogs.forEach((blog: any) => {
+				const isVisible =
+					searchData && searchData.length > 1
+						? blog.title
+								.toLowerCase()
+								.trim()
+								.includes(searchData.toLowerCase().trim()) &&
+						  blog.category
+								.toLowerCase()
+								.trim()
+								.includes(searchTerm.toLowerCase().trim())
+						: blog.category
+								.toLowerCase()
+								.trim()
+								.includes(searchTerm.toLowerCase().trim())
+				console.log(
+					"Hello",
+					blog.category,
+					blog.category
+						.toLowerCase()
+						.trim()
+						.includes(searchTerm.toLowerCase().trim())
+				)
+				blog.element.classList.toggle("hide", !isVisible)
+
+				if (isVisible) blogExists = true
+				blog.element.classList.toggle("hide", !isVisible)
+			})
+	} else if (searchData != prevSearch) {
 		prevSearch = searchData
-		console.log("Seach Data", searchData)
 		if (!searchData) return
-		blogs.forEach((blog: any) => {
-			const isVisible = blog.title
-				.toLowerCase()
-				.trim()
-				.includes(searchData.toLowerCase().trim())
-			blog.element.classList.toggle("hide", !isVisible)
-		})
+		let blogExists = false
+		blogs &&
+			blogs.forEach((blog: any) => {
+				const isVisible =
+					searchData.length > 1
+						? blog.title
+								.toLowerCase()
+								.trim()
+								.includes(searchData.toLowerCase().trim())
+						: true
+				if (isVisible) blogExists = true
+				blog.element.classList.toggle("hide", !isVisible)
+			})
+		if (!blogExists) noResult.classList.remove("hide")
+		else noResult.classList.add("hide")
 	}
 }
 

@@ -15,5 +15,5 @@ addEventListener("keypress", (event) => {
 		window.location.href = `/search?result=${searchData}`
 	}
 })
-
+getDisplayDetails()
 export { searchData }

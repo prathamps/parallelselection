@@ -7,7 +7,6 @@ title: "Top 5 Adventure Books of 2022"
 category: Technology and gadgets
 tags:
   - Books
-
   - Adventure
   - Author
 
