@@ -36,9 +36,18 @@ blogs = blogPosts.map(
 		const card = (
 			blogPostTemplate.content.cloneNode(true) as HTMLTemplateElement
 		).children[0]
-
-		const blogLink = card.querySelector("[data-blog-link]") as HTMLAnchorElement
 		const blogTitle = card.querySelector("[data-blog-title]") as HTMLDivElement
+		const blogLink = document.createElement("a") as HTMLAnchorElement
+		const bloga = "/blog/" + blog.slug
+		blogLink.setAttribute("href", bloga)
+		blogLink.classList.add("blogPostCard")
+
+		const blogPostCardContent = card.querySelector(
+			"[data-post-card-content]"
+		) as HTMLElement
+		const blogPostImage = card.querySelector(
+			"[data-post-image]"
+		) as HTMLDivElement
 		const blogDescription = card.querySelector(
 			"[data-blog-description]"
 		) as HTMLDivElement
@@ -53,16 +62,24 @@ blogs = blogPosts.map(
 		// blogLink.href = `${blog.slug ? "blog/" + blog.slug : "/"}`
 		blogTitle.textContent = blog.data.title
 		blogDescription.textContent = blog.data.description
-		blogMisc.textContent = `${monthArr[13]} · ${8}`
+		let blogDate = new Date(blog.data.date.toString())
+		blogMisc.textContent = `${
+			monthArr[blogDate.getMonth()]
+		} · ${blogDate.getDate()}`
 		blogDuration.textContent = blog.data.readtime
 		blogImage.src = blog.data.share.image
 
+		blogLink.appendChild(blogPostCardContent)
+		blogLink.appendChild(blogPostImage)
+
+		card.insertBefore(blogLink, card.firstElementChild)
 		blogPostContainer.append(card)
 
 		return { title: blog.data.title, element: card }
 	}
 )
-setInterval(() => {
+
+const getDisplayDetails = () => {
 	if (searchData != prevSearch) {
 		prevSearch = searchData
 		console.log("Seach Data", searchData)
@@ -75,4 +92,6 @@ setInterval(() => {
 			blog.element.classList.toggle("hide", !isVisible)
 		})
 	}
-}, 1000)
+}
+
+export { getDisplayDetails }

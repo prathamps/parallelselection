@@ -18,11 +18,12 @@ import "../styles/global.css"
 	</div>
 
 	<BlogPostSection name="lifeStyle" />
+	<script src="/src/components/Header/Header.ts"></script>
 	<script async>
 		const queryParams = new URLSearchParams(window.location.search)
 		const searchTerm = queryParams.get("search")
 		const resultTerm = queryParams.get("result")
-		const titleText = await document.getElementById("Title")
+		const titleText = document.getElementById("Title")
 		if (searchTerm) titleText.innerText = "#" + searchTerm
 		if (resultTerm) titleText.innerText = "#" + resultTerm
 	</script>
