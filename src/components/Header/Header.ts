@@ -1,7 +1,7 @@
-const searchInput = document.querySelector("[data-search]")
-let searchData
+const searchInput = document.querySelector("[data-search]") as HTMLInputElement
+let searchData: String
 searchInput.addEventListener("input", (e) => {
-	const value = e.target.value
+	const value = (e.target as HTMLInputElement).value
 	searchData = value
 })
 
@@ -10,9 +10,5 @@ addEventListener("keypress", (event) => {
 		event.preventDefault()
 	}
 })
-
-const getSearchData = () => searchData
-
-console.log("searchData", searchData)
 
 export { searchData }

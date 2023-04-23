@@ -140,6 +140,10 @@
 	height: auto;
 }
 
+.hide {
+	display: none;
+}
+
 @media (max-width: 768px) {
 	.blogPostsContainer {
 		flex-direction: column;

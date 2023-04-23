@@ -19,16 +19,12 @@ console.log(Astro.params)
 		</div>
 	</div>
 
-	<BlogPostSection name="lifeStyle" id="BlogPost" />
+	<BlogPostSection name="lifeStyle" />
 	<script>
 		const titleText = document.getElementById("Title") as HTMLDivElement
 		const queryParams = new URLSearchParams(window.location.search)
 		const searchTerm = queryParams.get("search")
-
-		const blogPostSection = document.getElementById("BlogPost") as HTMLElement
 		titleText.innerText = "#" + searchTerm
-
-		console.log(searchTerm)
 	</script>
 	<Footer />
 </Layout>
