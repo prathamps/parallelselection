@@ -5,8 +5,6 @@ import Header from "../components/Header/Header.astro"
 import Layout from "../layouts/Layout.astro"
 import "../styles/components/SearchPage.css"
 import "../styles/global.css"
-
-console.log(Astro.params)
 ---
 
 <Layout>
@@ -20,11 +18,13 @@ console.log(Astro.params)
 	</div>
 
 	<BlogPostSection name="lifeStyle" />
-	<script>
-		const titleText = document.getElementById("Title") as HTMLDivElement
+	<script async>
 		const queryParams = new URLSearchParams(window.location.search)
 		const searchTerm = queryParams.get("search")
-		titleText.innerText = "#" + searchTerm
+		const resultTerm = queryParams.get("result")
+		const titleText = await document.getElementById("Title")
+		if (searchTerm) titleText.innerText = "#" + searchTerm
+		if (resultTerm) titleText.innerText = "#" + resultTerm
 	</script>
 	<Footer />
 </Layout>

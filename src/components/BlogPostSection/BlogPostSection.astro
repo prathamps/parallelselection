@@ -26,15 +26,15 @@ const posts = await getCollection("blog")
 		</div>
 		<div data-blog-post-container={encodeURIComponent(JSON.stringify(posts))}>
 			<template class="blogPostsCardContainer" data-blog-post-template>
-				<a href={`/`} class="blogPostCard" style="color: black;" data-blog-link>
-					<article class="blogPostCardContent">
+				<a href="/" data-blog-link>
+					<article class="blogPostCardContent" data-post-card-content>
 						<div class="blogPostTitle" data-blog-title></div>
 						<div class="blogPostDescription" data-blog-description></div>
 						<div class="contentMisc" data-misc-content>
 							<span class="duration" data-duration></span>
 						</div>
 					</article>
-					<div class="blogPostImage">
+					<div class="blogPostImage" data-post-image>
 						<img class="postImage" src={"/public/line.svg"} data-blog-image />
 					</div>
 				</a>

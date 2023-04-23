@@ -13,6 +13,7 @@
 	margin-right: 2rem;
 	border: 1px solid hsl(0, 0%, 21%);
 	transition: all 100ms ease-in;
+	color: black;
 }
 .blogPostCard:hover {
 	transform: scale(100.5%);
