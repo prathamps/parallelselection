@@ -96,12 +96,12 @@ function getDisplayDetails() {
 		console.log("Result", resultTerm)
 		resultflag = 1
 		blogs &&
-			blogs.forEach((blog: any) => {
+			blogs.forEach((blog: any, index: any) => {
 				const isVisible = blog.title
 					.toLowerCase()
 					.trim()
 					.includes(resultTerm.toLowerCase().trim())
-				blog.element.classList.toggle("hide", !isVisible)
+				if (index < 10) blog.element.classList.toggle("hide", !isVisible)
 			})
 		return
 	}
@@ -112,7 +112,7 @@ function getDisplayDetails() {
 		if (searchData != prevSearch) prevSearch = searchData
 		if (searchData) return
 		blogs &&
-			blogs.forEach((blog: any) => {
+			blogs.forEach((blog: any, index: any) => {
 				const isVisible =
 					searchData && searchData.length > 1
 						? blog.title
@@ -135,10 +135,11 @@ function getDisplayDetails() {
 						.trim()
 						.includes(searchTerm.toLowerCase().trim())
 				)
-				blog.element.classList.toggle("hide", !isVisible)
+				if (index < 10) blog.element.classList.toggle("hide", !isVisible)
 
 				if (isVisible) blogExists = true
-				blog.element.classList.toggle("hide", !isVisible)
+				if (!blogExists) noResult.classList.remove("hide")
+				else noResult.classList.add("hide")
 			})
 	} else if (searchData != prevSearch) {
 		prevSearch = searchData
