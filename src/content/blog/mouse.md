@@ -4,7 +4,7 @@ draft: false
 date: 2023-01-17
 title: The Yellow Ones Don’t Stop
 
-category: Wisdom
+category: Health and Wellness
 tags:
   - survival
 

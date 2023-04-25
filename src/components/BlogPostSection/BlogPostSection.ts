@@ -106,7 +106,7 @@ function getDisplayDetails() {
 		return
 	}
 
-	if (searchTerm) {
+	if (searchTerm && searchTerm !== "All") {
 		console.log("Search", searchTerm)
 		let blogExists = false
 		if (searchData != prevSearch) prevSearch = searchData
