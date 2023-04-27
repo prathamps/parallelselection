@@ -2,7 +2,7 @@
 draft: true
 
 date: 2023-01-14
-title: "Top 5 Adventure Books of 2022"
+title: "Testing Diamond Shine"
 
 category: Technology and gadgets
 tags:
@@ -19,7 +19,7 @@ share:
 ---
 
 Usage:
-The Dell KB216 is a full-size wired keyboard designed for use with desktop computers and laptops. It connects to your computer via a USB cable and features a standard layout with 104 keys, including a numeric keypad and 12 multimedia hotkeys. The keys are quiet and responsive, making it a good choice for both typing and gaming. The KB216 also includes adjustable tilt legs for comfortable typing and a durable design that can withstand heavy use.
+The Dell KB216 is a full-size wired <span class="diamondShine">keyboard designed</span> for use with desktop computers and laptops. It connects to your computer via a USB cable and features a standard layout with 104 keys, including a numeric keypad and 12 multimedia hotkeys. The keys are quiet and responsive, making it a good choice for both typing and gaming. The KB216 also includes adjustable tilt legs for comfortable typing and a durable design that can withstand heavy use.
 
 ![a food pyramid where every tier is cheese](https://m.media-amazon.com/images/I/811YM2Go9GL._SL1500_.jpg)
 

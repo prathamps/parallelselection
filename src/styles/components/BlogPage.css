@@ -153,6 +153,18 @@
 	margin-top: 2rem;
 }
 
+.diamondShine {
+	background: linear-gradient(
+		to right,
+		rgb(123, 31, 162),
+		rgb(103, 58, 183),
+		rgb(244, 143, 177)
+	);
+	background-clip: text;
+	--webkit-text-fill-color: transparent;
+	white-space: nowrap;
+}
+
 @media (max-width: 768px) {
 	.blogPageContainer {
 		width: 65vw;
