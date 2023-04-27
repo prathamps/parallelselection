@@ -153,16 +153,58 @@
 	margin-top: 2rem;
 }
 
+@keyframes background-pan {
+	from {
+		background-position: 0% center;
+	}
+
+	to {
+		background-position: -200% center;
+	}
+}
+
 .diamondShine {
+	font-weight: 900;
+
+	animation: background-pan 3s linear infinite;
+	background: #7474bf; /* fallback for old browsers */
+	background: -webkit-linear-gradient(
+		to right,
+		#348ac7,
+		#7474bf
+	); /* Chrome 10-25, Safari 5.1-6 */
 	background: linear-gradient(
 		to right,
-		rgb(123, 31, 162),
-		rgb(103, 58, 183),
-		rgb(244, 143, 177)
-	);
-	background-clip: text;
-	--webkit-text-fill-color: transparent;
+		#348ac7,
+		#7474bf
+	); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background-size: 200%;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 	white-space: nowrap;
+}
+
+.readprogress {
+	position: sticky;
+	top: 0px;
+	margin: 0;
+	width: 100vw;
+	padding: 0;
+}
+
+#readbar {
+	vertical-align: 1em;
+	inline-size: 100vw;
+	appearance: inherit;
+	border: 0.1px solid var(--color-primary);
+	block-size: 0.5em;
+}
+
+progress::-webkit-progress-bar {
+	background-color: #ffffff;
+}
+progress::-webkit-progress-value {
+	background-color: #348ac7;
 }
 
 @media (max-width: 768px) {
