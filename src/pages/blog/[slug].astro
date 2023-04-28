@@ -30,7 +30,12 @@ const { Content } = await post.render()
 <Layout>
 	<Header />
 	<div class="readprogress">
-		<progress id="readbar" value="32" max="100"> 32%</progress>
+		<progress
+			id="readbar"
+			class="progress-bar"
+			value="0"
+			max="100"
+			data-progress="75"></progress>
 	</div>
 	<div class="blogContainer">
 		<div class="blogPageContainer">
@@ -95,5 +100,6 @@ const { Content } = await post.render()
 	</div>
 	<script type="module" src="/src/API/subscribe.js" defer></script>
 	<script src="/src/components/Header/Header.ts"></script>
+	<script src="/src/API/blogpost.js" defer></script>
 	<BlogPostSection />
 </Layout>

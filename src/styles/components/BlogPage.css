@@ -182,6 +182,7 @@
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	white-space: nowrap;
+	cursor: pointer;
 }
 
 .readprogress {
@@ -189,6 +190,7 @@
 	top: 0px;
 	margin: 0;
 	width: 100vw;
+	z-index: 100;
 	padding: 0;
 }
 
@@ -198,6 +200,17 @@
 	appearance: inherit;
 	border: 0.1px solid var(--color-primary);
 	block-size: 0.5em;
+	transition: all 1s ease;
+}
+
+#readbar::after {
+	content: ""; /* add the percentage symbol after the progress value */
+	position: absolute;
+	top: 0;
+	right: 75%;
+	padding: 0 5px;
+	background-color: #4c7daf;
+	width: 10px;
 }
 
 progress::-webkit-progress-bar {
@@ -205,6 +218,11 @@ progress::-webkit-progress-bar {
 }
 progress::-webkit-progress-value {
 	background-color: #348ac7;
+	transition: all 1s ease;
+}
+
+progress::-webkit-progress-value::after {
+	content: " - Remember this";
 }
 
 @media (max-width: 768px) {

@@ -160,6 +160,9 @@
 }
 
 @media (max-width: 480px) {
+	.blogPostCard {
+		width: 85vw;
+	}
 	.blogPostsContainer {
 		flex-direction: column;
 		width: 85vw;
