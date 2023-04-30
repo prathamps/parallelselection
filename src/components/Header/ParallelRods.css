@@ -1,0 +1,272 @@
+.navItems {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: row;
+	text-decoration: none;
+	list-style: none;
+	margin: 1rem 8rem;
+}
+
+.blogLink {
+	color: #fff;
+	font-weight: 600;
+	margin: 1rem 4rem;
+}
+
+#toggle-menu {
+	display: none;
+	cursor: pointer;
+}
+
+.menu-icon {
+	margin-top: 0.5rem;
+	display: none;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+
+.navItemsContainer {
+	background-color: var(--color-primary);
+	transition: all 0.9s ease-in-out;
+}
+
+a {
+	color: white;
+	text-decoration: none;
+}
+
+.askButton {
+	padding: 0.5rem 1rem;
+	border-radius: 50px;
+	background-color: white;
+	width: max-content;
+}
+
+.askButton > a {
+	font-weight: 600;
+	color: rgb(0, 0, 0);
+}
+
+.collapseLine {
+	margin: 0.8rem;
+	height: 3rem;
+	width: 1.5rem;
+}
+
+#Rod {
+	transition: all ease 500ms;
+}
+#Rod_2 {
+	transition: all ease 500ms;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+	.navItemsContainer {
+		z-index: 100;
+		position: absolute;
+		top: 96px;
+		left: 0;
+		height: 0;
+		width: 100%;
+		visibility: hidden;
+		animation: scaleZOpposite 200ms ease forwards;
+		opacity: 0;
+		transition: all 0.5s ease-in-out;
+		transform-origin: top center;
+	}
+
+	#toggle-menu:checked ~ .navItemsContainer {
+		visibility: visible;
+		animation: scaleZ 200ms ease forwards;
+		opacity: 1;
+		height: fit-content;
+		transform-origin: top center;
+	}
+
+	@keyframes scaleZ {
+		0% {
+			opacity: 0;
+			transform: scale(0);
+		}
+
+		80% {
+			transform: scale(1.07);
+		}
+
+		100% {
+			opacity: 1;
+			transform: scale(1);
+		}
+	}
+
+	@keyframes scaleZOpposite {
+		0% {
+			opacity: 1;
+			transform: scale(1);
+		}
+
+		80% {
+			transform: scale(1.07);
+		}
+		100% {
+			opacity: 0;
+			transform: scale(0);
+		}
+	}
+	.navItems {
+		display: block;
+		margin: 2rem;
+		align-items: center;
+		flex-direction: column;
+	}
+
+	.blogLink {
+		color: #fff;
+		font-weight: 600;
+		margin: 1rem;
+	}
+
+	.askButton {
+		width: 50%;
+		padding: 0.5rem;
+		border-radius: 50px;
+		background-color: white;
+	}
+	.menu-icon {
+		display: flex;
+		max-width: fit-content;
+		max-height: max-content;
+		margin: auto 0.5rem;
+		transition: all 200ms ease-in;
+	}
+
+	#toggle-menu:checked ~ label .collapseLine {
+		animation: rotation 350ms ease-out forwards;
+		animation-delay: 600ms;
+	}
+	#toggle-menu:not(:checked) ~ label .collapseLine {
+		animation: rotationOpposite 350ms ease-out backwards;
+		animation-delay: 600ms;
+	}
+	@keyframes rotation {
+		from {
+			transform: rotateZ(0deg);
+		}
+		to {
+			transform: rotateZ(-270deg);
+		}
+	}
+	@keyframes rotationOpposite {
+		from {
+			transform: rotateZ(-270deg);
+		}
+		to {
+			transform: rotateZ(0deg);
+		}
+	}
+	#toggle-menu:checked ~ label #Handle {
+		animation: disappear 1500ms ease forwards;
+	}
+	#toggle-menu:checked ~ label #Handle_2 {
+		animation: disappear 1500ms ease forwards;
+	}
+
+	@keyframes disappear {
+		0% {
+			transform: scaleY(100%);
+		}
+		50% {
+			transform: scaleY(0%);
+		}
+		100% {
+			transform: scaleY(100%);
+		}
+	}
+	#toggle-menu:not(:checked) ~ label #Handle {
+		animation: disappearOpposite 1500ms ease forwards;
+	}
+	#toggle-menu:not(:checked) ~ label #Handle_2 {
+		animation: disappearOpposite 1500ms ease forwards;
+	}
+	@keyframes disappearOpposite {
+		0% {
+			transform: scaleY(100%);
+		}
+		50% {
+			transform: scaleY(0%);
+		}
+		100% {
+			transform: scaleY(100%);
+		}
+	}
+
+	#toggle-menu:checked ~ label #Rod {
+		animation: spiltUp 1500ms ease forwards;
+		animation-delay: 200ms;
+	}
+	#toggle-menu:checked ~ label #Rod_2 {
+		animation: spiltDown 1500ms ease forwards;
+		animation-delay: 200ms;
+	}
+
+	@keyframes spiltUp {
+		0% {
+			transform: translate(0);
+		}
+		20% {
+			transform: translate(35%);
+		}
+		100% {
+			transform: translate(0);
+		}
+	}
+
+	@keyframes spiltDown {
+		0% {
+			transform: translate(0);
+		}
+		20% {
+			transform: translate(-30%);
+		}
+		100% {
+			transform: translate(0);
+		}
+	}
+
+	#toggle-menu:not(:checked) ~ label #Rod {
+		animation: spiltUpOpposite 1500ms ease backwards;
+		animation-delay: 200ms;
+	}
+
+	#toggle-menu:not(:checked) ~ label #Rod_2 {
+		animation: spiltDownOpposite 1500ms ease backwards;
+		animation-delay: 200ms;
+	}
+
+	@keyframes spiltUpOpposite {
+		0% {
+			transform: translate(0);
+		}
+		20% {
+			transform: translate(35%);
+		}
+		100% {
+			transform: translate(0);
+		}
+	}
+
+	@keyframes spiltDownOpposite {
+		0% {
+			transform: translate(0);
+		}
+		20% {
+			transform: translate(-30%);
+		}
+		100% {
+			transform: translate(0);
+		}
+	}
+}

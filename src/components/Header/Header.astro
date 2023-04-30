@@ -2,7 +2,8 @@
 import "./Header.css"
 import parallelSelectionLogo from "/parallelselectionlogo.svg"
 import searchIcon from "/search.png"
-import lineIMG from "/line.svg"
+import parallelrodsImg from "/parallelrods.svg"
+import ParallelRods from "./ParallelRods.astro"
 ---
 
 <header class="header">
@@ -28,23 +29,7 @@ import lineIMG from "/line.svg"
 			</div>
 		</div>
 		<div class="navbarContainer">
-			<input type="checkbox" id="toggle-menu" />
-			<label class="menu-icon" for="toggle-menu">
-				<div>
-					<img class="collapseLine" src={lineIMG} alt="" />
-				</div>
-				<div>
-					<img class="collapseLine" src={lineIMG} alt="" />
-				</div>
-			</label>
-			<nav class="navItemsContainer">
-				<ul class="navItems">
-					<li class="blogLink"><a href="/search">Blog</a></li>
-					<li class="askButton">
-						<a href="/askselection">Ask Selection</a>
-					</li>
-				</ul>
-			</nav>
+			<ParallelRods />
 		</div>
 	</div>
 </header>
