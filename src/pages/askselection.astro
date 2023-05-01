@@ -75,7 +75,7 @@ import { db } from "../firebase"
 				})
 			} catch (error) {
 				// Added catch parameter
-				console.log("An error occurred when deleting expiration:", error)
+				console.error("An error occurred when deleting expiration:", error)
 			}
 		}
 
@@ -91,14 +91,13 @@ import { db } from "../firebase"
 			const coolDownSnapshot = await getDocs(coolDownRefs)
 
 			if (coolDownSnapshot.empty) {
-				console.log("The 'coolDown' collection is empty.")
+				console.error("The 'coolDown' collection is empty.")
 				enableSendButton()
 			} else {
-				console.log("Documents in the 'coolDown' collection:")
+				console.error("Documents in the 'coolDown' collection:")
 				coolDownSnapshot.forEach((doc) => {
-					console.log(doc.id) // Logs the name of each document
 					let cooldownExpiration = doc.data().expiration
-					console.log("cooldown", cooldownExpiration - new Date().getTime())
+
 					if (cooldownExpiration && cooldownExpiration > new Date().getTime()) {
 						// A cooldown is still active, so disable the button
 						setStatusText(cooldownExpiration)
@@ -109,10 +108,7 @@ import { db } from "../firebase"
 							enableSendButton()
 							// Remove the cooldown expiration time from Firestore
 							deleteCoolDown()
-							console.log(
-								"cooldown over",
-								cooldownExpiration - new Date().getTime()
-							)
+
 							statusDiv.innerText = (
 								cooldownExpiration - new Date().getTime()
 							).toLocaleString()
@@ -126,11 +122,6 @@ import { db } from "../firebase"
 		const handleSubmit = async () => {
 			loader = true
 			const currentDate = new Date().toLocaleString()
-			// Add a new document with a generated id.
-			console.log({
-				date: currentDate,
-				question: questiontext,
-			})
 
 			try {
 				const docRef = await addDoc(collection(db, "selectquestion"), {
@@ -140,7 +131,7 @@ import { db } from "../firebase"
 				console.log("Document written with ID: ", docRef.id)
 				loader = false
 			} catch (err) {
-				console.log(err)
+				console.error("Encounter and error", err)
 				loader = false
 			}
 
@@ -154,7 +145,7 @@ import { db } from "../firebase"
 				})
 			} catch (error) {
 				// Added catch parameter
-				console.log("An Error was encountered:", error)
+				console.error("An Error was encountered:", error)
 			}
 			setStatusText(cooldownExpiration)
 			// Set a timer to re-enable the button when the cooldown expires
@@ -170,13 +161,12 @@ import { db } from "../firebase"
 
 		sendButton?.addEventListener("click", () => {
 			questiontext = textarea.value.trim()
-			console.log(questiontext.length)
+
 			if (questiontext.length > 2 && questiontext.length < 250) {
 				disableSendButton()
 				handleSubmit()
 			} else {
 				statusDiv.innerText = "Make sure the text lies between [2, 250] letters"
-				console.log("Make sure to enter text in the field")
 			}
 		})
 	</script>

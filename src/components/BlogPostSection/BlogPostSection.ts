@@ -90,10 +90,8 @@ function getDisplayDetails() {
 	const queryParams = new URLSearchParams(window.location.search)
 	const searchTerm = queryParams.get("search")
 	const resultTerm = queryParams.get("result")
-	console.log("test", searchTerm)
-	if (resultTerm) {
-		console.log("Result", resultTerm)
 
+	if (resultTerm) {
 		blogs &&
 			blogs.forEach((blog: any, index: any) => {
 				const isVisible = blog.title
@@ -106,14 +104,12 @@ function getDisplayDetails() {
 	}
 
 	if (searchTerm && searchTerm !== "All" && !searchData) {
-		console.log("Search", searchTerm)
 		let blogExists = false
 		if (searchData !== prevSearch) prevSearch = searchData
 		if (searchData) return
-		console.log("Searching still", searchTerm)
+
 		blogs &&
 			blogs.forEach((blog: any, index: any) => {
-				console.log("Blog Term", blog.category.toLowerCase().trim())
 				const isVisible =
 					searchData && searchData.length > 1
 						? blog.title

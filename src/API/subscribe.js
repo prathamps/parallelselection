@@ -29,10 +29,6 @@ const handleSubmit = async () => {
 	loader = true
 	const currentDate = new Date().toLocaleString()
 	// Add a new document with a generated id.
-	console.log({
-		date: currentDate,
-		email: email,
-	})
 
 	try {
 		const docRef = await addDoc(collection(db, "email"), {
@@ -61,7 +57,6 @@ const handleSubmit = async () => {
 subscribeBtn?.addEventListener("click", (e) => {
 	e.preventDefault()
 	email = emailInput.value.trim()
-	console.log(email.length)
 	if (validateEmail(email)) {
 		handleSubmit()
 	} else {
