@@ -3,17 +3,37 @@ const readProgress = document.querySelector("#readbar")
 const readProgressSecond = document.querySelector("#readbarSecond")
 const completeSign = document.querySelector(".readCompleteContainer")
 const completeText = document.querySelector(".readInner")
-const completelist = [
-	"Reading Complete!",
-	"Story Finished!",
-	"Article Done!",
-	"End Reached!",
-	"Content Consumed!",
-	"Done Reading!",
-	"Text Concluded!",
-	"Post Read!",
-	"Finished Article!",
-	"Done and Dusted!",
+const spookyMessages = [
+	"Watch your back.",
+	"Don't look up.",
+	"Hear that whisper?",
+	"They're watching you.",
+	"Follow the shadows.",
+	"Darkness envelops all.",
+	"Run, don't stop.",
+	"You're not alone.",
+	"Dread creeps closer.",
+	"Eyes in darkness.",
+	"Quiet, too quiet.",
+	"Door creaks open.",
+	"Lost in woods.",
+	"Fear the darkness.",
+	"Something's coming...",
+	"Silence, then scream.",
+	"Ghostly presence felt.",
+	"Beware the shadows.",
+	"Running out time.",
+	"Don't trust anyone.",
+	"Beyond the portal.",
+	"Trapped in limbo.",
+	"Can't escape curse.",
+	"Desperate for freedom.",
+	"Lost in dimension.",
+	"Help me escape.",
+	"Hear my plea.",
+	"Time is running.",
+	"Curse grows stronger.",
+	"Break the spell.",
 ]
 
 const updateReadProgress = (element, event) => {
@@ -27,7 +47,7 @@ const updateReadProgress = (element, event) => {
 		} else readProgress.value += halfProgress * 2
 	else readProgressSecond.value += halfProgress * 2
 	if (readProgressSecond.value == 100) {
-		completeText.innerText = completelist[Math.floor(Math.random() * 9)]
+		completeText.innerText = spookyMessages[Math.floor(Math.random() * 9)]
 		completeSign.classList.add("container-appear")
 	}
 

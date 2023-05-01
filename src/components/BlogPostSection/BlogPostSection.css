@@ -44,7 +44,7 @@
 
 .blogCategories {
 	overflow-x: scroll;
-	background-color: #363636;
+	background-color: rgba(20, 20, 20);
 	max-width: fit-content;
 	width: 100%;
 	height: max-content;
@@ -71,7 +71,7 @@
 }
 
 .blogCategory {
-	background-color: #363636;
+	background-color: rgba(20, 20, 20);
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	color: white;

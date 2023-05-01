@@ -85,16 +85,15 @@ blogs = blogPosts.map(
 		}
 	}
 )
-let resultflag = 0
 
 function getDisplayDetails() {
 	const queryParams = new URLSearchParams(window.location.search)
 	const searchTerm = queryParams.get("search")
 	const resultTerm = queryParams.get("result")
-	console.log("test", resultTerm)
-	if (resultTerm && resultflag == 0) {
+	console.log("test", searchTerm)
+	if (resultTerm) {
 		console.log("Result", resultTerm)
-		resultflag = 1
+
 		blogs &&
 			blogs.forEach((blog: any, index: any) => {
 				const isVisible = blog.title
@@ -106,13 +105,15 @@ function getDisplayDetails() {
 		return
 	}
 
-	if (searchTerm && searchTerm !== "All") {
+	if (searchTerm && searchTerm !== "All" && !searchData) {
 		console.log("Search", searchTerm)
 		let blogExists = false
-		if (searchData != prevSearch) prevSearch = searchData
+		if (searchData !== prevSearch) prevSearch = searchData
 		if (searchData) return
+		console.log("Searching still", searchTerm)
 		blogs &&
 			blogs.forEach((blog: any, index: any) => {
+				console.log("Blog Term", blog.category.toLowerCase().trim())
 				const isVisible =
 					searchData && searchData.length > 1
 						? blog.title
@@ -127,21 +128,13 @@ function getDisplayDetails() {
 								.toLowerCase()
 								.trim()
 								.includes(searchTerm.toLowerCase().trim())
-				console.log(
-					"Hello",
-					blog.category,
-					blog.category
-						.toLowerCase()
-						.trim()
-						.includes(searchTerm.toLowerCase().trim())
-				)
 				if (index < 10) blog.element.classList.toggle("hide", !isVisible)
 
 				if (isVisible) blogExists = true
 				if (!blogExists) noResult.classList.remove("hide")
 				else noResult.classList.add("hide")
 			})
-	} else if (searchData != prevSearch) {
+	} else if (searchData !== prevSearch) {
 		prevSearch = searchData
 		if (!searchData) return
 		let blogExists = false
