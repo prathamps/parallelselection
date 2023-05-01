@@ -13,24 +13,45 @@
 
 .trendingCardContainer {
 	margin-top: 2rem;
-	background-color: #cbcbcb;
+	background-color: rgba(20, 20, 20);
 	height: max-content;
 	width: 65vw;
 	display: grid;
 	grid-template-columns: repeat(2, 2fr);
-	grid-gap: 1em;
+	grid-gap: 8px;
 	padding: 1rem;
 }
 
 .trendingCard {
+	color: var(--color-secondary);
 	display: flex;
 	justify-content: space-between;
 	flex-direction: column;
-
 	height: 150px;
-
-	background-color: #ffffff;
+	background-color: rgb(255, 255, 255, 0.1);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	position: relative;
 	transition: all 200ms ease-in-out;
+}
+.trendingCard:hover::before {
+	opacity: 1;
+}
+.trendingCard::before {
+	background: radial-gradient(
+		800px circle at var(--mouse-x) var(--mouse-y),
+		rgba(255, 255, 255, 0.06),
+		transparent 40%
+	);
+	border-radius: inherit;
+	content: "";
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0px;
+	opacity: 0;
+	transition: opacity 500ms;
+	width: 100%;
+	z-index: 2;
 }
 
 .trendingCardContent {

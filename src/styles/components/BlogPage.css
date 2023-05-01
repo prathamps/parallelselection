@@ -263,10 +263,10 @@ progress::-webkit-progress-value::after {
 }
 
 .container-appear {
-	animation: scaleZ 2000ms ease forwards;
+	animation: scaleSign 2000ms ease forwards;
 }
 
-@keyframes scaleZ {
+@keyframes scaleSign {
 	0% {
 		opacity: 0;
 		transform: scale(0);
