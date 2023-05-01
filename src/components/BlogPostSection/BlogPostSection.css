@@ -75,22 +75,49 @@
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	color: white;
-	grid-gap: 10px;
+	grid-gap: 8px;
 	grid-row-gap: 10px;
 	margin: 2rem;
+	width: 100%;
 }
 
 .categoryChip {
+	background-color: rgb(255, 255, 255, 0.1);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	position: relative;
 	min-width: max-content;
-	border: 1px solid white;
 	padding: 0.5rem 0.5rem;
 	cursor: pointer;
 	color: white;
 	transition: all 200ms ease-in-out;
 }
-
+.categoryChip:hover::before {
+	opacity: 1;
+}
+.categoryChip::before {
+	background: radial-gradient(
+		400px circle at var(--mouse-x) var(--mouse-y),
+		rgba(255, 255, 255, 0.1),
+		transparent 40%
+	);
+	border-radius: inherit;
+	content: "";
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0px;
+	opacity: 0;
+	transition: opacity 500ms;
+	width: 100%;
+	z-index: 2;
+}
+.categoryChip > a {
+	display: block;
+	width: 100%;
+	color: #fff;
+}
 .categoryChip:hover {
-	transform: scale(110%);
+	transform: scale(100.5%);
 }
 
 .blogPostsCardContainer {
