@@ -28,11 +28,11 @@ Pros:
 - Affordable: The Dell KB216 is a budget-friendly option that provides good value for its price.
 - periods of typing.
 - Multimedia hotkeys: The 12 built-in multimedia hotkeys make it easy to control <span class="diamondShine" id="readShine_2" >media playback</span> and adjust volume without having to use a mouse.
-- Durable: The KB216's spill-resistant design and durable construction make it resistant to wear and tear over time
+- Durable: The KB216's <span class="diamondShine" id="readShine_2" >spill-resistant design</span> and durable construction make it resistant to wear and tear over time
 
 Cons:
 
-- No backlighting: The keyboard does not have any backlighting, which may make it difficult to use in low-light conditions.
+- No backlighting: The <span class="diamondShine" id="readShine_2" >keyboard</span> does not have any<span class="diamondShine" id="readShine_2" > backlighting</span>, which may make it difficult to use in low-light conditions.
 - Limited customization: While the multimedia keys are customizable, the other keys on the keyboard are not programmable, which may be a drawback for some users.
 - Limited connectivity: The keyboard is wired and only connects via USB, so it may not be ideal for those who need a more portable or versatile option.
 

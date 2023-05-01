@@ -17,8 +17,15 @@ const completelist = [
 ]
 
 const updateReadProgress = (element, event) => {
-	if (readProgress.value != 100) readProgress.value += 50
-	else readProgressSecond.value += 50
+	let halfProgress = 100 / shineables.length
+	if (readProgress.value != 100)
+		if (readProgress.value + halfProgress * 2 > 100) {
+			readProgress.value += halfProgress * 2
+			setTimeout(() => {
+				readProgressSecond.value = readProgress.value + halfProgress * 2 - 100
+			}, 600)
+		} else readProgress.value += halfProgress * 2
+	else readProgressSecond.value += halfProgress * 2
 	if (readProgressSecond.value == 100) {
 		completeText.innerText = completelist[Math.floor(Math.random() * 9)]
 		completeSign.classList.add("container-appear")
