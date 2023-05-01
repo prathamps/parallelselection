@@ -83,6 +83,7 @@ a {
 		animation: scaleZ 200ms ease forwards;
 		opacity: 1;
 		height: fit-content;
+
 		transform-origin: top center;
 	}
 

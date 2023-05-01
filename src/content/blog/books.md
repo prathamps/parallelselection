@@ -19,7 +19,7 @@ share:
 ---
 
 Usage:
-The Dell KB216 is a full-size wired <span class="diamondShine" id="readShine" onclick="updateReadProgress()">keyboard designed</span> for use with desktop computers and laptops. It connects to your computer via a USB cable and features a standard layout with 104 keys, including a numeric keypad and 12 multimedia hotkeys. The keys are quiet and responsive, making it a good choice for both typing and gaming. The KB216 also includes adjustable tilt legs for comfortable typing and a durable design that can withstand heavy use.
+The Dell KB216 is a full-size wired <span class="diamondShine" id="readShine" >keyboard designed</span> for use with desktop computers and laptops. It connects to your computer via a USB cable and features a standard layout with 104 keys, including a numeric keypad and 12 multimedia hotkeys. The keys are quiet and responsive, making it a good choice for both typing and gaming. The KB216 also includes adjustable tilt legs for comfortable typing and a durable design that can withstand heavy use.
 
 ![a food pyramid where every tier is cheese](https://m.media-amazon.com/images/I/811YM2Go9GL._SL1500_.jpg)
 
@@ -27,7 +27,7 @@ Pros:
 
 - Affordable: The Dell KB216 is a budget-friendly option that provides good value for its price.
 - periods of typing.
-- Multimedia hotkeys: The 12 built-in multimedia hotkeys make it easy to control media playback and adjust volume without having to use a mouse.
+- Multimedia hotkeys: The 12 built-in multimedia hotkeys make it easy to control <span class="diamondShine" id="readShine_2" >media playback</span> and adjust volume without having to use a mouse.
 - Durable: The KB216's spill-resistant design and durable construction make it resistant to wear and tear over time
 
 Cons:

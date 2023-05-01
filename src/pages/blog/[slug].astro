@@ -30,13 +30,27 @@ const { Content } = await post.render()
 <Layout>
 	<Header />
 	<div class="readprogress">
-		<progress
-			id="readbar"
-			class="progress-bar"
-			value="0"
-			max="100"
-			data-progress="75"></progress>
+		<div class="progress-container">
+			<progress
+				id="readbar"
+				class="progress-bar"
+				value="0"
+				max="100"
+				data-progress="75"></progress>
+			<progress
+				id="readbarSecond"
+				class="progress-bar"
+				value="0"
+				max="100"
+				data-progress="75"></progress>
+		</div>
+		<div class="readCompleteContainer">
+			<div class="readOuter">
+				<div class="readInner">Content Consumed!</div>
+			</div>
+		</div>
 	</div>
+
 	<div class="blogContainer">
 		<div class="blogPageContainer">
 			<div class="blogHeaderContainer">

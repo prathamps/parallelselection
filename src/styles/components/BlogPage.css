@@ -183,33 +183,47 @@
 	-webkit-text-fill-color: transparent;
 	white-space: nowrap;
 	cursor: pointer;
+	transition: all 200ms ease-in;
 }
 
 .readprogress {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--color-primary);
 	position: sticky;
 	top: 0px;
 	margin: 0;
 	width: 100vw;
 	z-index: 100;
-	padding: 0;
+	height: 2em;
 }
-
-#readbar {
-	vertical-align: 1em;
-	inline-size: 100vw;
+.progress-container {
+	width: 90%;
+	padding: 0.5em;
+	height: fit-content;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.progress-bar {
+	width: 50%;
+	/* vertical-align: 1em;
+	inline-size: 100vw; */
 	appearance: inherit;
 	border: 0.1px solid var(--color-primary);
-	block-size: 0.5em;
+	block-size: 0.4em;
 	transition: all 1s ease;
 }
 
-#readbar::after {
+.progress-bar::after {
 	content: ""; /* add the percentage symbol after the progress value */
 	position: absolute;
 	top: 0;
 	right: 75%;
 	padding: 0 5px;
-	background-color: #4c7daf;
+	background-color: var(--color-secondary);
 	width: 10px;
 }
 
@@ -217,12 +231,75 @@ progress::-webkit-progress-bar {
 	background-color: #ffffff;
 }
 progress::-webkit-progress-value {
-	background-color: #348ac7;
+	background: #7474bf; /* fallback for old browsers */
+	background: -webkit-linear-gradient(
+		to right,
+		#348ac7,
+		#7474bf
+	); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(
+		to right,
+		#348ac7,
+		#7474bf
+	); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	transition: all 1s ease;
 }
 
 progress::-webkit-progress-value::after {
 	content: " - Remember this";
+}
+
+.readCompleteContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 150%;
+	max-width: 10%;
+	opacity: 0;
+	min-width: 200px;
+	width: fit-content;
+	transition: all 250ms ease;
+}
+
+.container-appear {
+	animation: scaleZ 2000ms ease forwards;
+}
+
+@keyframes scaleZ {
+	0% {
+		opacity: 0;
+		transform: scale(0);
+	}
+
+	40% {
+		transform: scale(1.07);
+	}
+
+	50% {
+		opacity: 1;
+		transform: scale(1);
+	}
+
+	90% {
+		transform: scale(1.07);
+	}
+
+	100% {
+		opacity: 1;
+		transform: scale(0);
+	}
+}
+
+.readOuter {
+	padding: 0.5rem;
+	background-color: var(--color-primary);
+}
+
+.readInner {
+	background-color: var(--color-secondary);
+	text-align: center;
+	padding: 1rem;
 }
 
 @media (max-width: 768px) {
