@@ -38,25 +38,31 @@ const spookyMessages = [
 
 const updateReadProgress = (element, event) => {
 	let halfProgress = 100 / shineables.length
-	if (readProgress.value != 100)
+	if (readProgress.value != 100) {
 		if (readProgress.value + halfProgress * 2 > 100) {
 			readProgress.value += halfProgress * 2
 			setTimeout(() => {
 				readProgressSecond.value = readProgress.value + halfProgress * 2 - 100
 			}, 600)
-		} else readProgress.value += halfProgress * 2
-	else readProgressSecond.value += halfProgress * 2
+		} else {
+			readProgress.value += halfProgress * 2
+		}
+	} else {
+		readProgressSecond.value += halfProgress * 2
+	}
 	if (readProgressSecond.value == 100) {
 		completeText.innerText = spookyMessages[Math.floor(Math.random() * 9)]
 		completeSign.classList.add("container-appear")
 	}
 
 	event.classList.remove("diamondShine")
-	element.removeEventListener("click", () => {}, false)
+	element.removeEventListener("click", clickHandler)
+}
+
+const clickHandler = (e) => {
+	updateReadProgress(e.currentTarget, e.target)
 }
 
 shineables.forEach((ele, index) => {
-	ele.addEventListener("click", (e) => {
-		updateReadProgress(ele, e.target)
-	})
+	ele.addEventListener("click", clickHandler)
 })
